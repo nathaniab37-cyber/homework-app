@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Helper</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4f46e5;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        p.subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 120px;
+            outline: none;
+            transition: border 0.2s;
+        }
+        textarea:focus { border-color: #4f46e5; }
+        button {
+            margin-top: 16px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        button:hover { background: #4338ca; }
+        .answer-box {
+            margin-top: 30px;
+            background: #f8f9ff;
+            border-left: 4px solid #4f46e5;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .answer-box h2 {
+            color: #4f46e5;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .answer-box p {
+            color: #333;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+        .question-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Homework Helper</h1>
+        <p class="subtitle">Ask me anything about your schoolwork!</p>
+
+        <form method="POST">
+            <textarea name="question" placeholder="Type your question here... e.g. Explain the water cycle" required>{{ question or '' }}</textarea>
+            <button type="submit">Ask ✨</button>
+        </form>
+
+        {% if answer %}
+        <div class="answer-box">
+            <h2>💡 Answer:</h2>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
